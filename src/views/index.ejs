@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+</head>
+<body> 
+
+<h1>To-Do</h1>
+
+<div>
+    <form action="/add/todo" method="POST">
+        <input type="text" name= "task" placeHolder="Add Task">
+        <input type="text" name="description" placeHolder="Task Description">
+        <select name="status">
+            <option value="Open">Open</option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+    <input type="submit" value="Add To-do">
+    </form>
+
+<ul>
+    <% todo.forEach(todos => {  %>
+        <li><%= todos.task %></li>
+        <a href="/delete/todo/<%= todos._id %>">Delete</a>
+    <% }) %> 
+</ul>
+
+</div>
+
+</body>
+</html>
