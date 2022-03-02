@@ -3,30 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{background-color: #112031;}
+        .form{
+            padding: 1px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            background-color: #464660;
+            width: 55%;
+            border-radius: 20px;
+            margin-top: 9%;
+        }
+        .list{
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            width : 50%;
+            margin-top: 5%;
+            margin-bottom: 1%;
+        }
+        .task{ 
+            background-color: #E3D0B9;
+            border-radius: 10px;
+            margin-top:2%;
+            display: flex;
+            flex-direction: column;
+             }
+
+        .input{
+            border : 0px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
     <title>To-Do App</title>
 </head>
 <body> 
 
-<h1>To-Do</h1>
-
-<div>
+<div class="form" >
+    <h1>To-Do</h1>
     <form action="/add/todo" method="POST">
-        <input type="text" name= "task" placeHolder="Add Task">
-        <input type="text" name="description" placeHolder="Task Description">
-        <select name="status">
+        <input class="input" type="text" name= "task" placeHolder="Add Task">
+        <input class="input" type="text" name="description" placeHolder="Task Description">
+        <select class="input" name="status">
             <option value="Open">Open</option>
             <option value="In-Progress">In-Progress</option>
             <option value="Completed">Completed</option>
           </select>
-    <input type="submit" value="Add To-do">
+    <input class="input" type="submit" value="Add To-do">
     </form>
 
-<ul>
+<div class="list">
     <% todo.forEach(todos => {  %>
-        <li><%= todos.task %></li>
+        <div class="task">
+        <span><%= todos.task %></span>
         <a href="/delete/todo/<%= todos._id %>">Delete</a>
+        </div>
     <% }) %> 
-</ul>
+    </div>
 
 </div>
 
