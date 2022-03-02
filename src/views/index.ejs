@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+<!-- this is for styling -->
+<style>
         body{background-color: #112031;}
         .form{
             padding: 1px;
@@ -38,26 +39,26 @@
             padding: 5px;
             border-radius: 5px;
         }
-    </style>
-    <title>To-Do App</title>
+</style>
+    <title>To-Do App</title> <!-- app name -->
 </head>
 <body> 
 
 <div class="form" >
-    <h1>To-Do</h1>
-    <form action="/add/todo" method="POST">
-        <input class="input" type="text" name= "task" placeHolder="Add Task">
+    <h1>To-Do</h1> <!-- app heading -->
+    <form action="/add/todo" method="POST"> <!-- POST method for task addition -->
+        <input class="input" type="text" name= "task" placeHolder="Add Task"> <!-- form in frontend -->
         <input class="input" type="text" name="description" placeHolder="Task Description">
         <select class="input" name="status">
             <option value="Open">Open</option>
             <option value="In-Progress">In-Progress</option>
             <option value="Completed">Completed</option>
           </select>
-    <input class="input" type="submit" value="Add To-do">
+    <input class="input" type="submit" value="Add To-do"> <!-- submit button -->
     </form>
 
 <div class="list">
-    <% todo.forEach(todos => {  %>
+    <% todo.forEach(todos => {  %><!-- this is for deletion of task added earlier from database using unique id of that task -->
         <div class="task">
         <span><%= todos.task %></span>
         <a href="/delete/todo/<%= todos._id %>">Delete</a>
